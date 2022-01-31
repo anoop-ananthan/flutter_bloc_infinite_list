@@ -1,6 +1,11 @@
 # flutter_bloc_infinite_list
 
-A sample application to learn flutter bloc the correct way.
+A sample application to learn flutter bloc the correct way. Took some deviations from the tutorial and based on the experiance here are some notes to self:
+1. You can do many things with Cubit and don't need Bloc all the time. In this example, there are transformation using events, debounce etc... Therefore, Blocs is really needed here.
+
+2. Using enumeration for the loading status is better than writing specific classes for each state as it increases boilerplate code.
+
+3. I love bloc! :heart:
 
 ## Getting Started
 
