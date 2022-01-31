@@ -1,5 +1,7 @@
 part of 'posts_bloc.dart';
 
+enum PostsStatus { initial, loading, success, failure }
+
 @immutable
 abstract class PostsState {
   final List<Post> posts;
@@ -27,7 +29,7 @@ class PostsFetchSuccess extends PostsState {
 }
 
 class PostsFetchFailure extends PostsState {
-  final Exception exception;
+  final dynamic exception;
 
   const PostsFetchFailure(
     List<Post> posts,
@@ -43,5 +45,12 @@ class PostsFetchFailure extends PostsState {
 }
 
 class PostsFetching extends PostsState {
-  const PostsFetching() : super(hasReachedMaximum: false);
+  final bool isInitial;
+  const PostsFetching(
+    List<Post> posts,
+    this.isInitial,
+  ) : super(
+          hasReachedMaximum: false,
+          posts: posts,
+        );
 }
